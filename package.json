@@ -7,7 +7,8 @@
     "build": "webpack --entry ./index.js --output ./bundle.js --mode development",
     "build:local": "webpack --mode production",
     "build:external": "webpack --config ./external/webpack.config.js",
-    "build:multi": "webpack --config ./multi-entry-points/webpack.config.js"
+    "build:multi": "webpack --config ./multi-entry-points/webpack.config.js",
+    "build:css": "webpack --config ./CSS-Styles-Loaders/webpack.config.js"
   },
   "keywords": [
     "webpack"
@@ -16,6 +17,8 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "css-loader": "3.4.0",
+    "style-loader": "1.1.2",
     "webpack": "4.41.5",
     "webpack-cli": "3.3.10"
   }
