@@ -21,26 +21,30 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                use: 'babel-loader',
+                use: [
+                    'babel-loader',
+                ],
                 exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
                 use: [
+                // {
+                //     loader: MiniCSSExtractPlugin.loader
+                // },
                     'style-loader',
                     'css-loader', 
                 ]
             }
         ]
     },
-    resolve: {
-        extensions: [".js", ".jsx"]
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title: 'webpack-dev-server',
-            template: path.resolve(__dirname,'index.html')
+            title: 'webpack-dev-server'
         }),
+        // new MiniCSSExtractPlugin({
+        //     filename: 'css/[name].css'
+        // })
     ]
 }
