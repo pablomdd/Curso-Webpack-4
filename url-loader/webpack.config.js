@@ -20,9 +20,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: 'babel-loader',
-                exclude: /node_modules/,
+                test: /\.jpg|png|gif|eot|ttf|svg|mp4|webm$/,
+                use: {
+                    loader: 'url-loader',
+                    options:{
+                        limit: 90000,
+                    }
+                }
+                
             },
             {
                 test: /\.css$/,
