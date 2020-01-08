@@ -30,12 +30,34 @@ module.exports = {
                 
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                     'style-loader',
                     'css-loader', 
+                    'sass-loader'
                 ]
-            }
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader', 
+                    'less-loader'
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader:'css-loader', 
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader'
+                ]
+            },
         ]
     },
     resolve: {
@@ -47,5 +69,13 @@ module.exports = {
             title: 'webpack-dev-server',
             template: path.resolve(__dirname,'index.html')
         }),
-    ]
+    ],
+    //CONGIG FOR Split Chunk aka Vendor Files Capacity
+    optimization:{
+        splitChunks: {
+            chunks: 'all',
+            minSize: 0,
+            name: 'commons'
+        }
+    }
 }
