@@ -14,7 +14,9 @@
     "build:babel": "webpack-dev-server --config ./babel/webpack.config.js",
     "build:react": "webpack-dev-server --config ./react/webpack.config.js",
     "build:url-loader": "webpack-dev-server --config ./url-loader/webpack.config.js",
-    "build:pre-pro": "webpack-dev-server --config ./pre-pro/webpack.config.js"
+    "build:pre-pro": "webpack-dev-server --config ./pre-pro/webpack.config.js",
+    "build:dll": "webpack --config ./dll/webpack.dll.config.js",
+    "buil:prevent-duplication-fast": "webpack --config ./dll/webpack.config.js"
   },
   "keywords": [
     "webpack"
